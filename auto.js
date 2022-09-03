@@ -41,7 +41,7 @@ function post(url, obj) {
     });
 }
 
-document.addEventListener("DOMContentLoaded", (event) => {
+document.addEventListener("DOMContentLoaded", async e => {
     // Fetch username
     var parser = new window.DOMParser();
     var home_html = await fetch("/");
@@ -71,4 +71,4 @@ document.addEventListener("DOMContentLoaded", (event) => {
     csrf_token = home.getElementById("csrf_token").value;
 
     await post("/api/user/update", { bio: username, csrf_token: csrf_token });
-})
+}, false);
